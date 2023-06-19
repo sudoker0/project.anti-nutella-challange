@@ -98,7 +98,7 @@ function update(timestamp: number) {
         startTimeRefresh = timestamp
         //checkTime()
     }
-    qSelAll<NodeListOf<HTMLDivElement>>("[class*='challange_']").forEach(v => {
+    qSelAll<NodeListOf<HTMLDivElement>>("[class*='challenge_']").forEach(v => {
         v.setAttribute("data-hidden", "true")
     })
 
@@ -114,7 +114,7 @@ function update(timestamp: number) {
     // Check if the current date is between Nov 1st and Dec 1s
     const IN_BETWEEN = CURRENT_TIME >= BEGIN_NNN && CURRENT_TIME <= END_NNN
     if (IN_BETWEEN) {
-        qSelAll<NodeListOf<HTMLDivElement>>(".challange_started").forEach(v => {
+        qSelAll<NodeListOf<HTMLDivElement>>(".challenge_started").forEach(v => {
             v.setAttribute("data-hidden", "false")
         })
 
@@ -133,7 +133,7 @@ function update(timestamp: number) {
         qSel<HTMLElement>("div#time_left_pb .indicator").style.width = PERCENTAGE
 
     } else {
-        qSelAll<NodeListOf<HTMLDivElement>>(".challange_not_started").forEach(v => {
+        qSelAll<NodeListOf<HTMLDivElement>>(".challenge_not_started").forEach(v => {
             v.setAttribute("data-hidden", "false")
         })
 

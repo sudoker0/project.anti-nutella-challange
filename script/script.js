@@ -70,7 +70,7 @@ function update(timestamp) {
     if (elapsed >= limitRefresh) {
         startTimeRefresh = timestamp;
     }
-    qSelAll("[class*='challange_']").forEach(v => {
+    qSelAll("[class*='challenge_']").forEach(v => {
         v.setAttribute("data-hidden", "true");
     });
     CURRENT_TIME = new Date();
@@ -82,7 +82,7 @@ function update(timestamp) {
         BEGIN_NEW_NNN = new Date(CURRENT_YEAR + 1, 10, 1);
     const IN_BETWEEN = CURRENT_TIME >= BEGIN_NNN && CURRENT_TIME <= END_NNN;
     if (IN_BETWEEN) {
-        qSelAll(".challange_started").forEach(v => {
+        qSelAll(".challenge_started").forEach(v => {
             v.setAttribute("data-hidden", "false");
         });
         const ELAPSED = diffTime(CURRENT_TIME, BEGIN_NNN);
@@ -97,7 +97,7 @@ function update(timestamp) {
         qSel("div#time_left_pb .indicator").style.width = PERCENTAGE;
     }
     else {
-        qSelAll(".challange_not_started").forEach(v => {
+        qSelAll(".challenge_not_started").forEach(v => {
             v.setAttribute("data-hidden", "false");
         });
         const TIME_LEFT_BEFORE_BEGIN = diffTime(BEGIN_NEW_NNN, CURRENT_TIME);
