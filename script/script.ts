@@ -15,12 +15,15 @@ interface HTMLElement {
 // ! everything was a pain to handle
 
 HTMLElement.prototype.replace = function (data: Template, prefix: string = "$_") {
-    const alternate_prefix = "id_dlr_"
-    const _this: () => HTMLElement = () => this
+    const alternate_prefix = "id_dlr_";
+    const _this: () => HTMLElement = () => this;
     for (const i in data) {
-        const old = _this().innerHTML
-        const span: () => HTMLElement | null = () => _this().querySelector(`span.reactive#${alternate_prefix}${i}`)
-        if (span() == null) _this().innerHTML = old.replace(`${prefix}${i}`, `<span class="reactive" id="${alternate_prefix}${i}"></span>`)
+        const old = _this().innerHTML;
+        const span: () => HTMLElement | null = () =>
+            _this().querySelector(`span.reactive#${alternate_prefix}${encodeURIComponent(i)}`)
+        if (span() == null) _this().innerHTML =
+            old.replace(`${prefix}${i}`, `
+                <span class="reactive" id="${alternate_prefix}${encodeURIComponent(i)}"></span>`)
         span().innerText = data[i]
     }
 }
